@@ -2,8 +2,25 @@ version: '3.8'
 
 services:
   go:
+    container_name: api
     build: .
+    depends_on:
+      - db
     volumes:
         - ./:/app
     ports:
-      - "80:80"
+      - 80:80
+  db:
+    container_name: db
+    image: postgres:14.2-alpine
+    ports:
+      - 5439:5439
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=p@ssword
+      - POSTGRES_DB=example
+    volumes:
+      - data-store:/var/lib/postgresql/data
+      - ./db_script:/docker-entrypoint-initdb.d
+volumes: 
+  data-store:
