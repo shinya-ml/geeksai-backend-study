@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  go:
+    build: .
+    volumes:
+        - ./:/app
+    ports:
+      - "80:80"
