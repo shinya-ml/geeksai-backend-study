@@ -37,6 +37,7 @@ func (h *User) Get(w http.ResponseWriter, r *http.Request) {
 	user, err := h.repository.FindByID(userID)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
+		return
 	}
 
 	// handling http response
