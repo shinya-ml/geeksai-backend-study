@@ -75,6 +75,14 @@ paginate: true
 - [A Philosophy of Software Design](https://www.amazon.co.jp/Philosophy-Software-Design-John-Ousterhout/dp/1732102201) では、ソフトウェアの複雑性が増大している兆候の一つとしてあげられている
 - 自分は普段の開発で認知負荷が高くなりすぎていないか？をよく気にしている
 
+--- 
+
+## なぜ認知負荷を気にしているのか
+
+- 理解が不十分なままコードの修正や書き足しをすると、**より複雑度が高まってしまう**
+    - 認知負荷の高いコードは、さらなる認知負荷の上昇をもたらす
+- 規模が大きくなるにつれて複雑性の増加は避けられない
+    - 工夫して複雑になりすぎないようにすることはできる
 ---
 
 # アーキテクチャの話
@@ -109,12 +117,21 @@ paginate: true
 
 ## 必要なときに必要な変更をする
 
-- 良いアーキテクチャは、開発が進むにつれて変わっていくもの
+- 良いとされるアーキテクチャは、開発が進むにつれて変わっていくもの
 - アプリケーションの規模が小さい段階から、壮大なアーキテクチャにしようとすると大体つらい
     - ほとんどなにもしてないレイヤーが生まれる
     - 意味のない抽象化 (具体的な実装が1個しかないとか)
     - なぜそのレイヤーが存在しているのかわからない = 認知負荷が高い
-- 大事な考え方を守りつつ、必要に応じて層を足したり抽象化をすればよい
+- 自分たちにとって大事な考えを守りつつ、**必要に応じて**層を足したり抽象化をすればよい
+
+---
+## 例えば
+
+- **handler**: HTTP リクエストを受け取ってレスポンスを返すマン
+- **repository**: DBとやりとりするマン
+- **entity**: サービスが扱うオブジェクトを定義するマン
+
+![bg right 80%](img/minimal_architecture.png)
 
 ---
 
@@ -123,7 +140,7 @@ paginate: true
 - 単に来たリクエストに応じてCRUDするだけならこれくらい素朴でもいい
 - 開発したいことに応じてアーキテクチャも変化させていく
 
-![bg right 40%](img/minimal_architecture.png)
+![bg right 80%](img/minimal_architecture.png)
 
 ---
 
@@ -132,7 +149,7 @@ paginate: true
 - ビジネスロジックを書く層がほしい！
     - あとから足せば良い
 
-![bg right 40%](img/add_usecase.png)
+![bg right 80%](img/add_usecase.png)
 
 ---
 
@@ -143,7 +160,7 @@ paginate: true
 - インターフェースに依存する形にする
     - 具象が１個だけなら抽象化する必要もない
 
-![bg right 90%](img/add_interface.png)
+![bg right 80%](img/add_interface.png)
 
 ---
 
@@ -155,6 +172,8 @@ paginate: true
 2. 依存の流れを1方向にする
 
 これらを守りながら、その時々でベストな設計を模索する
+
+何を大事にするのかは人とか開発するサービスの特性によって変わってくる
 
 --- 
 
@@ -245,7 +264,7 @@ paginate: true
 
 ## APIスタイル
 
-API設計の際に選択肢として出てくるモデルたち
+API設計の際に選択肢として出てくるやつら
 
 - REST
     - リソースベースのURI
@@ -411,7 +430,7 @@ GraphQLなら...
 - repository: DBとのやりとり
 - entity: ビジネスオブジェクト 
 
-![bg right 40%](img/add_usecase.png)
+![bg right 80%](img/add_usecase.png)
 
 ---
 
@@ -425,7 +444,7 @@ GraphQLなら...
 - (ロジックがあれば) entity層のユニットテスト
 - handler ~ repository まで一気通貫のインテグレーションテスト
 
-![bg right 40%](img/add_usecase.png)
+![bg right 80%](img/add_usecase.png)
 
 ---
 
@@ -437,7 +456,7 @@ GraphQLなら...
 - repositoryのユニットテスト
 - repository - DB 間のインテグレーションテスト
 
-![bg right 40%](img/add_usecase.png)
+![bg right 80%](img/add_usecase.png)
 
 ---
 
