@@ -16,16 +16,29 @@ paginate: true
 ---
 ## 自己紹介
 
+![bg right 80%](./img/harinezumi.JPG)
+
 - 名前: 鈴木 進也
     - yanyanと呼ばれています
-- 株式会社CARTA HOLDINGS fluct アドプラットフォーム事業本部 開発本部所属
-    - GoでGraphQLサーバーを書いたり、データエンジニアリングをしています
+- 新卒2年目
 - 趣味
     - valorant
     - FF14 (最近始めました)
     - キーボードで散財
 
 --- 
+
+## 自己紹介
+
+![bg right 80%](./img/harinezumi.JPG)
+
+- 株式会社CARTA HOLDINGS
+    - 株式会社fluct 開発本部
+    - ネット広告の配信、運用支援などをやっている会社
+- GoでAPIサーバーを書いたり、データエンジニアリングをしています
+
+
+---
 
 今日の資料、サンプルコードはGithubに置いてあります
 
