@@ -97,15 +97,23 @@ paginate: true
     - 依存関係の整理
 
 
+1から作るバックエンドアプリケーションのレイヤー構造をどうやって考えていくか
+
+
 --- 
 
 ## よく目にするアーキテクチャたち
+
+![bg right vertical 60%](./img/hexagonal_architecture.png)
+![bg 60%](./img/clean_architecture.jpeg)
 
 - レイヤードアーキテクチャ
 - ヘキサゴナルアーキテクチャ
 - オニオンアーキテクチャ
 - クリーンアーキテクチャ
 - etc...
+
+<!-- _footer: '[画像の出典] [Ready for changes with Hexagonal Architecture](https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749), [Clean Architecture](https://www.kadokawa.co.jp/product/301806000678/)' -->
 
 --- 
 
@@ -252,9 +260,9 @@ paginate: true
 
 ## まとめ
 
-- アプリの規模に応じて、その時々で適切な構造にしよう
-- アーキテクチャもサービスの進化によって変化していくもの
-- 変化の中でも常に守りたいことはなにかを考えよう
+- アプリケーションにレイヤー構造を設けることで依存関係が整理される
+- 関心ごとを適切に分けよう
+- 守りたいルールは遵守しながら、サービスの成長に合わせてアーキテクチャは変化させていこう
 
 ---
 
@@ -471,7 +479,7 @@ HTTP request/responseが関心事
 
 ---
 
-## repositoryのユニットテスト
+<!-- ## repositoryのユニットテスト
 
 - DBとやりとりすることが仕事なので、それ単体でテストしたいことは基本ない
 - 複雑なSQLをクエリビルダーで組み立ててるとかならテストしたいかも
@@ -486,7 +494,7 @@ dockerとか使えば本番同様の環境がローカルやCI上で再現でき
     - MySQLやPostgresのテストがしたいのか？みたいになる
 - トランザクション処理とかがちゃんとできるんだっけとかは、サービスによってはテストしたい
 
----
+--- -->
 
 ## テストは意図が大事
 
